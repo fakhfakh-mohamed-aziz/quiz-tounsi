@@ -1,7 +1,7 @@
 ---
 title: "Quizz Tounsi"
 author: "Mohamed Aziz Fakhfakh"
-description: "Test your knowledge about Tunisia in this quiz!"
+description: "Want to know how much you know about tunisia? Want to discover some surreal facts about this exciting country? Look no further! With 4 levels, play to see "
 created_at: "2026-06-16"
 ---
 
