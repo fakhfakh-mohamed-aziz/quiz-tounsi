@@ -19,9 +19,9 @@
 
    <main>
       <div id="levels">
- <div >
-         <button id="play" type="button" class="btn btn-outline-secondary">Play</button>
-      </div>
+         <div>
+            <button id="play">Play</button>
+         </div>
       <div id="level_container" style="display: none;">
          <button onclick="window.location.href = '../easy/easy.html';">easy</button> <br>
          <button onclick="window.location.href = '../medium/medium.html';">medium</button> <br>
@@ -31,18 +31,22 @@
       </div>
      
       <div>
-         <button>rules</button>
-      </div>
-      <h3>Want to know how much you know about tunisia? <br>
-         Want to discover some surreal facts about this exciting country?
-      </h3>
-      <p>Choose your level: <br>
-         - easy : basic tunisia knowledge <br>
-         - medium : deserving a citizenship <br>
-         - hard : a good patriot (or someone with unreal knowledge) <br>
-         - impossible : either you are using wikipedia or you are wikipedia (mashallah) <br>
+         <button id="infobtn" type="button">info</button>
+         <div id="informations" style="display: none;">
+            <h3>
+               Want to know how much you know about tunisia? <br>
+               Want to discover some surreal facts about this exciting country?
+            </h3>
+            <p>Choose your level: <br>
+               - easy : basic tunisia knowledge <br>
+               - medium : deserving a citizenship <br>
+               - hard : a good patriot (or someone with unreal knowledge) <br>
+               - impossible : either you are using wikipedia or you are wikipedia (mashallah) <br>
 
-      </p>
+            </p>
+            <button id="returnbtn">return</button>
+         </div>
+      </div>
    </main>
 
    <footer class="footer">
