@@ -25,4 +25,14 @@ I made an info button to know about the quiz and linked all the levels to their 
 
 ![alt text](image-1.png)
 
-**Total time spent: 59m 25s**
+**Total time spent: 1h 2m 59s**
+
+
+
+# June 22nd : Making the quiz work
+
+I added a lot of paragraphs and titles concerning the results for each question. I also completed the load question function and made it functionnal (lol). Besides that, I added a verification function that compares the answer you selected with the correct one and updates your score, makes comments and explains each answer. I then had to make a 'next question' button, because when I added other questions (for testing so don't laugh at their stupidity ToT), it sticks to the same question. In summary, a lot of '.style.display's, a lot of constants and a LOT of errors later, the quiz is somewhat functionning! 
+
+![alt text](image-2.png)
+
+**Total time spent: 1h 48m 13s**
