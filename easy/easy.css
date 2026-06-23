@@ -1,0 +1,10 @@
+.stars{
+    height: 75px;
+    length: 75px;
+}
+
+#starsdiv{
+    height: 75px;
+    display: flex;
+    gap: 25px;
+}
