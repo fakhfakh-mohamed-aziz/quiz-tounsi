@@ -39,11 +39,21 @@ I added a lot of paragraphs and titles concerning the results for each question.
 
 
 
-# June 23nd : Quizz Finish and comments
+# June 23rd : Quizz Finish and comments
 
 I added a finish quiz button and made the function to make it end the quiz and give the user's results. I also added 3 stars and 3 black and white stars so that the user's scroe takes the form of stars. I had a problem with the stars though cause I couldn't put them in the same line, and after a bit of research I discovered the existance of something called a flexbox. I don't know much about for now but it is a life saver. Then I added a lot of comments. I made the quiz a little provocative when you do a long streak without winnig but it gives you some nice comments when you do a good streak. It also gives feedback according to the score.
 
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 
-**Total time spent: 1h 43m 22s**
+**Total time spent: 1h 46m 14s**
+
+
+
+# June 24th : 
+
+I made some questions concerning geography, history, culture and more, and I wrote some explainations to explain the answers. I also made it so that the True answer always turns green after your choice, and if you're wrong, your choice will turn red. That was so difficult to do but with a lot of documentation, it works just fine now!
+
+![alt text](image-5.png)
+
+**Total time spent: 1h 17m 7s**

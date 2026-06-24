@@ -31,22 +31,59 @@ let falsestreak = 0
 const questions = [
     {
         question: "Tunis is the capital of Tunisia. Sfax is:",
-        options : ["the most visited place in tunisia", "The capital of the south", "The furthest city from Tunis", "Has the most islamic culture heritage"],
+        options : ["the most visited place in tunisia", "The capital of the south", "The furthest city from Tunis", "Has the most amazigh culture heritage"],
         answer:"The capital of the south",
         explaination: "Eventhough it is not really in the south, it is called the capital of the south for its " //to complete
     },
     {
-        question: "1+1=:",
-        options : ["1", "3", "yes", "1789"],
-        answer:"yes",
-        explaination: "PiewPiew " //to complete
+        question: "Which movies/series have scenes filmed in Tunisia?",
+        options : ["Star Wars", "Fast and Furious", "Alladin", "Harry Potter"],
+        answer:"Star Wars",
+        explaination: "Some Star Wars scenes have been filmed in the south regions of Tunisia. Fun fact : The planet Tatooine gets its name from the governorate of Tataouine!"
     },
     {
-        question: "2+2=:",
-        options : ["15", "3", "yes", "1789"],
-        answer:"yes",
-        explaination: "PiewPiew " //to complete
+        question: "The Arab Spring started in Tunisia, but on which date did the Tunisian ex-President Zine El Abidine Ben Ali flee the country?",
+        options : ["14 January 2011", "11 January 2014", "He didn't actually flee, he was judged and sent to prison", "He didn't actually flee, he was killed by protestors"],
+        answer:"14 January 2011",
+        explaination: "On the evening of the 14th of January 2014, former president Zine El Abidine Ben Ali went to Saudi Arabia thinking he will stay untill the riots ended, but they never did, and Tunisia formed its own governement."
+    },
+    {
+        question: "What are Zambra and Zambretta?",
+        options : ["Two islands off the coast of Nabeul", "Two characters of a mythical story in Tunisian culture", "A saying to express how much two people get along", "A traditionnal dish"],
+        answer:"Two islands off the coast of Nabeul",
+        explaination: "Two little islands containing each a national park off the Cap Bon peninsula in Nabeul"
+    },
+    {
+        question: "What is the name origin of the city of Nabeul?",
+        options : ["From a Tunisian icon", "From a battle in the northern part of tunisia", "From a greek word", "From the Roman general who won a battle there"],
+        answer:"From a greek word",
+        explaination: "The greek word Neapolis which means the new city. The name was eventually arabized into Nabeul. It has the same name origins of cities like Napoli in Italy and Nabulus in Palestine." 
+    },
+    {
+        question: "What is the Northenmost point in the African continent?",
+        options : ["Cap Shleka", "Cap Angela", "Cap Sghaier", "Cap Hrouss"],
+        answer:"Cap Angela",
+        explaination: "Cap Angela is indeed the northernmost point in africa at 37° above the equator. Oh and the others are made up names lol."
+    },
+    {
+        question: "What city is the most tied to islammic culture?",
+        options : ["Soussa", "Kairouan", "Sidi Bou Zid", "Kef"],
+        answer:"Kairouan",
+        explaination: "" //to complete
+    },
+    {
+        question: "What town is one of the most visited in tunisia?",
+        options : ["Sidi Bou Zid", "Sidi Bou Said", "Sidi Ali El Makki", "Sidi Mansour (ya baba)"],
+        answer:"Sidi Bou Said",
+        explaination: "Known for its cobbled streets and blue-and-white houses, Sidi Bou Said is a charming town on a promontory overlooking the Mediterranean. -Wikipedia"
+    },
+    {
+        question: "Where is located the city of Jendouba?",
+        options : ["In the North-west", "In the South-west", "In the North-east", "In the South-east"],
+        answer:"In the North-west",
+        explaination: "Its known as one of the coldest places in Tunisia, with towns like Ain Drahem, one of the rare places in Tunisia where it occasionally snows"
     }
+    
 ]
 
 const numquestions = questions.length
@@ -149,6 +186,8 @@ function verification(){
         
         // make comments
         explainationParagraph.textContent = currentQuestion.explaination
+
+        document.querySelector('input[name="option"]:checked').parentElement.style.color = '#8DB600'
     }
     else{
         truestreak = 0
@@ -178,6 +217,10 @@ function verification(){
         }
         //make comments
         explainationParagraph.textContent = currentQuestion.explaination
+
+        document.querySelector('input[name="option"]:checked').parentElement.style.color = '#f73333'
+        document.getElementById('option_'+currentQuestion.options.indexOf(currentQuestion.answer)).parentElement.style.color = '#8DB600'
+
     }
 
 }
