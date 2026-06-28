@@ -50,10 +50,50 @@ I added a finish quiz button and made the function to make it end the quiz and g
 
 
 
-# June 24th : 
+# June 24th : Making the 'easy' questions and changing the answers colors 
 
-I made some questions concerning geography, history, culture and more, and I wrote some explainations to explain the answers. I also made it so that the True answer always turns green after your choice, and if you're wrong, your choice will turn red. That was so difficult to do but with a lot of documentation, it works just fine now!
+I made some questions concerning geography, history, culture and more, and I wrote some explainations to explain the answers. I also made it so that the True answer always turns green after your choice, and if you're wrong, your choice will turn red. That was so difficult to do but it works just fine now!
 
 ![alt text](image-5.png)
 
 **Total time spent: 1h 17m 7s**
+
+
+
+# June 25th : Wrong answer animations
+
+I started by making an alert when the user doesn't choose an option. I had a problem where the stars division took space even when the stars aren't displaying, and after searching, I remebered I had a css file where I had specified the dimentions of the divison. When I removed that line of code, it worked! Then I wanted to have a screenshake along with the wrong answer verdict, and while a lot of websites gave hard-to-understand solutions that don't even work, I found a website called w3schools that showed me how to manually make the animation by making a new class and defining what it would do in the css file using @keyframes. Now the screen shake animation is smooth as butter and bug free! I also wanted to make the background momentarily turn red when an answer is wrong, and that was also painful to do but I solved it with a little help from friend cause I didn't find the documentation necessary. (I couldn't get a screenshot of the animation obviously but you can see that it's slightly blurred from the shake)
+
+![alt text](image-6.png)
+
+**Total time spent: 1h 40m 39s**
+
+
+
+# June 25th : Logo making
+
+I wanted to make a logo that contained the cressent and the star from the country's flag but it wasn't aesthetic enough no matter how I tried to make it better so I dropped the design and went for two different fonts while replacing the 'o' from tounsi with a khomsa which is a palm-shaped traditionnal amulet. 
+
+![alt text](image-7.png)
+
+**Total time spent: 43m 39s**
+
+
+
+# June 26th and 27th: backgrounds
+
+Ok so for this one, I'm writing this a lot of time after coding, so I won't remember everithing but here it is. First I put the logo in both the pages I've worked on till now and resized it to 90*160 px which seemed to be the best size. Then I searched for high quality images and named them 1 through 17 so that it could display the images as backgrounds randomly, but the background was difficult to resize and its dimentions kept changing whenever the answer was wrong. To solve this problem I made some changes including the fact that it's not the background anymore that turned red, but something called box shadow, that kind of overlays on the elemnts. I also made a blurry backgroud for the quiz container with rounded corners and the same concept with different values for the logo. I liked it so I made the same thing for the buttons. I don't remember if there's anymore changes I've done but either way I'm happy.
+
+![alt text](image-8.png)
+
+**Total time spent: 2h 25m**
+
+
+
+# June 28th: 
+
+To change the font, I had to download an opentype file of the font and import it in the css file using @font-face, because the fonts actually given in css are very limited. Then I changed the sizes and the weights accordingly and applied them to my elements.
+
+![alt text](image-9.png)
+
+**Total time spent: 38m 24s**

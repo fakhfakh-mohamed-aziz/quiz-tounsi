@@ -28,6 +28,8 @@ let score = 0
 let truestreak = 0
 let falsestreak = 0
 
+const body = document.getElementById('body')
+
 const questions = [
     {
         question: "Tunis is the capital of Tunisia. Sfax is:",
@@ -86,6 +88,10 @@ const questions = [
     
 ]
 
+body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*17)}.jpg)` //to be changed if the number of bg images changes
+//bg images have to be jpg or the code would change
+body.style.minHeight='100vh'
+
 const numquestions = questions.length
 
 const trueanswer = ["You got it!", "That's right!", "7low yesser (Very good)!",
@@ -96,13 +102,14 @@ const falseanswer = ["Maybe next time", "Noooo ;(", "Wrong!",
 startbtn.addEventListener("click", start_quiz)
 restartbtn.addEventListener("click", restart_quiz)
 nextQuestionbtn.addEventListener("click", loadquestion)
-
+submitbtn.addEventListener("click", verification)
 
 
 function start_quiz(){
     startbtn.style.display="none"
     submitbtn.style.display="block"
     nextQuestionbtn.style.display='none'
+    quiz_container.style.backdropFilter='blur(5px)'
     setTimeout(() =>{
         loadquestion() // condition to be added
         quiz_container.style.display="block"
@@ -126,6 +133,8 @@ function loadquestion(){
     comment.textContent = ""
     explainationParagraph.textContent = ""
 
+    body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*17)}.jpg)` //to be changed if the number of bg images changes
+
     if (questions.length !== 0){
       
         submitbtn.style.display="block"
@@ -144,7 +153,6 @@ function loadquestion(){
             `
             options_container.appendChild(option_div)
         })
-        submitbtn.addEventListener("click", verification)
 
         questions.splice(currentQuestionIndex, 1)  
     }
@@ -152,74 +160,89 @@ function loadquestion(){
 }
 
 function verification(){
-    const selected = document.querySelector('input[name="option"]:checked').value
-    submitbtn.style.display='none'
-    if (questions.length !== 0){
-        nextQuestionbtn.style.display='block'
-    }
-    else {
-        finishbtn.style.display='block'
-        finishbtn.addEventListener("click", finishquiz)
-    }
-    
-
-    if (selected === currentQuestion.answer){
-        score++
-        truestreak++
-        falsestreak = 0
-
-        if (truestreak===3){
-            answer_result.textContent = "three in a row!"
-        }
-        else if (truestreak>3){
-            answer_result.textContent = "You are on fire!"
-        }
-        else {
-            answer_result.textContent = trueanswer[Math.floor(Math.random()*trueanswer.length)]
-        }
-        if (questionCount===1){
-            score_update.textContent = "Good start!"
-        }
-        else{
-            score_update.textContent = `Your score is now : ${score} out of ${questionCount}`
-        }
-        
-        // make comments
-        explainationParagraph.textContent = currentQuestion.explaination
-
-        document.querySelector('input[name="option"]:checked').parentElement.style.color = '#8DB600'
+    if (!document.querySelector('input[name="option"]:checked')){
+        alert("Please select an option")
     }
     else{
-        truestreak = 0
-        falsestreak++
-
-        if (score===0 & questionCount ===3 ){
-            answer_result.textContent = "Still no right answer?"
+        const selected = document.querySelector('input[name="option"]:checked').value
+        submitbtn.style.display='none'
+        if (questions.length !== 0){
+            nextQuestionbtn.style.display='block'
         }
-        else if (falsestreak===3){
-            answer_result.textContent = "Come on you can do better"
-        }
-        else if (falsestreak===4){
-            answer_result.textContent = "This the worst streak ever"
-        }
-        else if (falsestreak>4){
-            answer_result.textContent = "I was wrong, this is the worst streak ever"
-        }
-        else{
-            answer_result.textContent = falseanswer[Math.floor(Math.random()*falseanswer.length)]
+        else {
+            finishbtn.style.display='block'
+            finishbtn.addEventListener("click", finishquiz)
         }
         
-        if (questionCount===1){
-            score_update.textContent = "good start!"
+
+        if (selected === currentQuestion.answer){
+            score++
+            truestreak++
+            falsestreak = 0
+
+            if (truestreak===3){
+                answer_result.textContent = "three in a row!"
+            }
+            else if (truestreak>3){
+                answer_result.textContent = "You are on fire!"
+            }
+            else {
+                answer_result.textContent = trueanswer[Math.floor(Math.random()*trueanswer.length)]
+            }
+            if (questionCount===1){
+                score_update.textContent = "Good start!"
+            }
+            else{
+                score_update.textContent = `Your score is now : ${score} out of ${questionCount}`
+            }
+            
+            // make comments
+            explainationParagraph.textContent = currentQuestion.explaination
+
+            document.querySelector('input[name="option"]:checked').parentElement.style.color = '#8DB600'
         }
         else{
-            score_update.textContent = `Your score is still : ${score} out of ${questionCount}`
-        }
-        //make comments
-        explainationParagraph.textContent = currentQuestion.explaination
+            truestreak = 0
+            falsestreak++
+            
+            quiz_container.classList.add('shake')
+            document.body.style.minHeight='100vh'
+            document.body.style.transition='box-shadow 0.5s ease',
+            document.body.style.boxShadow='inset 0 0 0 100vmax rgba(179, 1, 1, 0.55)'
+            setTimeout(() => {
+                quiz_container.classList.remove('shake'),
+                document.body.style.boxShadow='' // to change with the actual backgroung color
+            },500)
 
-        document.querySelector('input[name="option"]:checked').parentElement.style.color = '#f73333'
-        document.getElementById('option_'+currentQuestion.options.indexOf(currentQuestion.answer)).parentElement.style.color = '#8DB600'
+            if (score===0 & questionCount ===3 ){
+                answer_result.textContent = "Still no right answer?"
+            }
+            else if (falsestreak===3){
+                answer_result.textContent = "Come on you can do better"
+            }
+            else if (falsestreak===4){
+                answer_result.textContent = "This the worst streak ever"
+            }
+            else if (falsestreak>4){
+                answer_result.textContent = "I was wrong, this is the worst streak ever"
+            }
+            else{
+                answer_result.textContent = falseanswer[Math.floor(Math.random()*falseanswer.length)]
+            }
+            
+            if (questionCount===1){
+                score_update.textContent = "good start!"
+            }
+            else{
+                score_update.textContent = `Your score is still : ${score} out of ${questionCount}`
+            }
+            //make comments
+            explainationParagraph.textContent = currentQuestion.explaination
+
+            document.querySelector('input[name="option"]:checked').parentElement.style.color = '#f73333'
+            document.getElementById('option_'+currentQuestion.options.indexOf(currentQuestion.answer)).parentElement.style.color = '#8DB600'
+
+        }
 
     }
 

@@ -4,7 +4,101 @@
 }
 
 #starsdiv{
-    height: 75px;
     display: flex;
     gap: 25px;
+}
+
+button{
+    border: 0px;
+    height: 45px;
+    width: 130px;
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+    font-family: gristela;
+    font-weight: 400;
+    font-size: larger;
+}
+
+#submitbtn{
+    margin-top: 30px;
+}
+
+#startbtn{
+    margin-top: 30px;
+    margin-left: 5%;
+}
+
+.bigbtn{
+    border: 0px;
+    height: 60px;
+    width: 150px;
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+}
+
+.shake{
+    animation: shake 0.5s;
+}
+
+@keyframes shake{
+    0%{transform: translateX(8px);}
+    25%{transform: translateX(-8px);}
+    60%{transform: translateX(2px);}
+    100%{transform: translateX(-2px);}
+}
+
+#quiz_container{
+    padding: 50px;
+    height: auto;
+    margin-right: 50%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    border-radius: 10%;
+    border: 3px;
+    font-size: 135%;
+}
+
+#body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0%;
+}
+
+#logo{
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+}
+
+@font-face {
+    font-family: 'Rosca';
+    src: url(../fonts/rosca.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'gristela';
+    src: url(../fonts/gristela.otf) format(opentype);
+}
+
+h2{
+    font-family: Rosca;
+}
+
+#options_container{
+    font-family: gristela;
+    font-weight: 100;
+}
+
+#explainationParagraph{
+    font-family: gristela;
+    font-weight: 100;
+}
+
+#comment{
+    font-family: gristela;
+    font-weight: 100;
 }
