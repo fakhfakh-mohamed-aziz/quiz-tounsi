@@ -4,6 +4,8 @@ const submitbtn = document.getElementById("submitbtn")
 const nextQuestionbtn = document.getElementById("nextQuestionbtn")
 const finishbtn = document.getElementById("finishbtn")
 
+const logo = document.getElementById("logo")
+const nav = document.getElementById("nav")
 const quiz_container = document.getElementById("quiz_container")
 const options_container = document.getElementById("options_container")
 const question = document.getElementById("question")
@@ -97,7 +99,7 @@ const numquestions = questions.length
 const trueanswer = ["You got it!", "That's right!", "7low yesser (Very good)!",
     "Waywa (impressive)!", "Too easy?", "incredible!"]
 const falseanswer = ["Maybe next time", "Noooo ;(", "Wrong!",
-    "Ti le 3ad sehla hedhi (Come on)", "..."]
+    "Ti le 3ad sehla hedhi (Come on)", "Li ba3dou nchalah (The next one I hope)"]
 
 startbtn.addEventListener("click", start_quiz)
 restartbtn.addEventListener("click", restart_quiz)
@@ -105,11 +107,17 @@ nextQuestionbtn.addEventListener("click", loadquestion)
 submitbtn.addEventListener("click", verification)
 
 
+
 function start_quiz(){
     startbtn.style.display="none"
     submitbtn.style.display="block"
     nextQuestionbtn.style.display='none'
     quiz_container.style.backdropFilter='blur(5px)'
+
+    logo.style.width='240px'
+    logo.style.height='135px'
+    logo.style.marginLeft='5%'
+
     setTimeout(() =>{
         loadquestion() // condition to be added
         quiz_container.style.display="block"

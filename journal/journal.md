@@ -80,7 +80,7 @@ I wanted to make a logo that contained the cressent and the star from the countr
 
 
 
-# June 26th and 27th: backgrounds
+# June 26th and 27th: Backgrounds
 
 Ok so for this one, I'm writing this a lot of time after coding, so I won't remember everithing but here it is. First I put the logo in both the pages I've worked on till now and resized it to 90*160 px which seemed to be the best size. Then I searched for high quality images and named them 1 through 17 so that it could display the images as backgrounds randomly, but the background was difficult to resize and its dimentions kept changing whenever the answer was wrong. To solve this problem I made some changes including the fact that it's not the background anymore that turned red, but something called box shadow, that kind of overlays on the elemnts. I also made a blurry backgroud for the quiz container with rounded corners and the same concept with different values for the logo. I liked it so I made the same thing for the buttons. I don't remember if there's anymore changes I've done but either way I'm happy.
 
@@ -90,10 +90,20 @@ Ok so for this one, I'm writing this a lot of time after coding, so I won't reme
 
 
 
-# June 28th: 
+# June 28th: Fonts
 
 To change the font, I had to download an opentype file of the font and import it in the css file using @font-face, because the fonts actually given in css are very limited. Then I changed the sizes and the weights accordingly and applied them to my elements.
 
 ![alt text](image-9.png)
 
 **Total time spent: 38m 24s**
+
+
+
+# June 28th: 
+
+Before the quizz starts, i felt the screen was too empty, so i made the start button, the writing inside it and the logo bigger, and replaced them accordingly, but when the quizz started, the logo took to much place. To solve this problem, I went back to the start quizz function and there I put the old dimentions and margins for the logo and removed the 'center' property. But it still needed a transition. I wanted to do it but the logo kept teleporting to the left before smoothly reducing its size. After a bit of research I found out that some properties like justify content is either center or left... no in between. To solve this problem, I removed the justify content property on the nav bar and applied a big margin on the left of the logo (35%) so at the start it seemed like the logo was right in the middle of the page and when the start quiz function is called, the margin would lower to a 5% margin while getting smaller. I then added an upscaling anmation to the buttons when hovered on. But for the starting button, I felt the user needed to be 'drawn' to click on it, so I made a wiggle animation for the start button that stops when you hover on it. Finally, I wanted to animated the question and the options after watching a tutorial but that didn't work so I'll leave it for now and I'll come back for that later.
+
+![alt text](image-10.png)
+
+**Total time spent: 1h 58m 15s**
