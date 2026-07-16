@@ -39,10 +39,10 @@ button{
 }
 
 .shake{
-    animation: shake 0.5s;
+    animation: shakeit 0.5s;
 }
 
-@keyframes shake{
+@keyframes shakeit{
     0%{transform: translateX(8px);}
     25%{transform: translateX(-8px);}
     60%{transform: translateX(2px);}
