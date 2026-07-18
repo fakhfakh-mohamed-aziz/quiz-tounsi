@@ -1,6 +1,24 @@
 .stars{
-    height: 75px;
-    length: 75px;
+    height: 150px;
+    length: 150px;
+}
+
+.rotating{
+    animation: rotating 2s ease-out;
+}
+
+@keyframes rotating{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.starshake{
+    animation: starshake 0.5s ease-out;
+}
+
+@keyframes starshake{
+    50%{transform: translateX(4px);}
+    100%{transform: translateX(-4px);}
 }
 
 #starsdiv{
@@ -19,6 +37,7 @@ button{
     font-weight: 400;
     font-size: larger;
     transition: 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 button:hover{
@@ -32,10 +51,15 @@ button:hover{
 
 #startbtn{
     margin-top: 30px;
-    margin-left: 25%;
+    margin-left: 55%;
     height: 90px;
     width: 260px;
     font-size: xx-large;
+}
+
+#quitbtn{
+    margin-left: 60%;
+    font-size: x-large;
 }
 
 .wiggle{
@@ -50,9 +74,9 @@ button:hover{
     100%{transform: translateX(0px);}
 }
 
-#startorrestart{
+#startorquit{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .bigbtn{
@@ -65,7 +89,7 @@ button:hover{
 }
 
 .shake{
-    animation: shake 0.5s;
+    animation: shake 0.5s !important;
 }
 
 @keyframes shake{
@@ -76,6 +100,7 @@ button:hover{
 }
 
 #quiz_container{
+
     padding: 50px;
     height: auto;
     margin-right: 50%;
@@ -85,10 +110,10 @@ button:hover{
     border-radius: 10%;
     border: 3px;
     font-size: 135%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 
-    overflow: hidden;
-
-    animation: type 10s ease-in-out;
+/*    overflow: hidden;    
+    animation: type 10s ease-in-out;*/
 }
 
 /*@keyframes type{
@@ -145,4 +170,8 @@ h2{
 #comment{
     font-family: gristela;
     font-weight: 100;
+}
+
+#quizandstars{
+    display: flex;
 }

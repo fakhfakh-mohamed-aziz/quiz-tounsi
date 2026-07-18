@@ -1,8 +1,8 @@
 const startbtn = document.getElementById("startbtn")
-const restartbtn = document.getElementById("restartbtn")
 const submitbtn = document.getElementById("submitbtn")
 const nextQuestionbtn = document.getElementById("nextQuestionbtn")
 const finishbtn = document.getElementById("finishbtn")
+const quitbtn = document.getElementById("quitbtn")
 
 const logo = document.getElementById("logo")
 const nav = document.getElementById("nav")
@@ -16,6 +16,7 @@ const score_update = document.getElementById("score_update")
 const comment = document.getElementById("comment")
 const explainationParagraph = document.getElementById("explainationParagraph")
 
+const stars = document.getElementsByClassName("stars")
 const star1 = document.getElementById("star1")
 const star2 = document.getElementById("star2")
 const star3 = document.getElementById("star3")
@@ -32,8 +33,8 @@ let falsestreak = 0
 
 const body = document.getElementById('body')
 
-const questions = [
-    {
+const thequestions = [
+/*    {
         question: "Tunis is the capital of Tunisia. Sfax is:",
         options : ["the most visited place in tunisia", "The capital of the south", "The furthest city from Tunis", "Has the most amazigh culture heritage"],
         answer:"The capital of the south",
@@ -69,14 +70,15 @@ const questions = [
         answer:"Cap Angela",
         explaination: "Cap Angela is indeed the northernmost point in africa at 37° above the equator. Oh and the others are made up names lol."
     },
+    */
     {
-        question: "What city is the most tied to islammic culture?",
+        question: "Which city is the most tied to islammic culture?",
         options : ["Soussa", "Kairouan", "Sidi Bou Zid", "Kef"],
         answer:"Kairouan",
         explaination: "" //to complete
     },
     {
-        question: "What town is one of the most visited in tunisia?",
+        question: "Which town is one of the most visited in Tunisia?",
         options : ["Sidi Bou Zid", "Sidi Bou Said", "Sidi Ali El Makki", "Sidi Mansour (ya baba)"],
         answer:"Sidi Bou Said",
         explaination: "Known for its cobbled streets and blue-and-white houses, Sidi Bou Said is a charming town on a promontory overlooking the Mediterranean. -Wikipedia"
@@ -90,6 +92,8 @@ const questions = [
     
 ]
 
+let questions = thequestions
+
 body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*17)}.jpg)` //to be changed if the number of bg images changes
 //bg images have to be jpg or the code would change
 body.style.minHeight='100vh'
@@ -102,14 +106,28 @@ const falseanswer = ["Maybe next time", "Noooo ;(", "Wrong!",
     "Ti le 3ad sehla hedhi (Come on)", "Li ba3dou nchalah (The next one I hope)"]
 
 startbtn.addEventListener("click", start_quiz)
-restartbtn.addEventListener("click", restart_quiz)
 nextQuestionbtn.addEventListener("click", loadquestion)
 submitbtn.addEventListener("click", verification)
 
 
 
 function start_quiz(){
+    if (questions.length===0) {
+        questions = [...thequestions]
+    }
+
+    star1.style.display='none'
+    star2.style.display='none'
+    star3.style.display='none'
+    no_star1.style.display='none'
+    no_star2.style.display='none'
+    no_star3.style.display='none'
+    
+    quiz_container.offsetHeight
+
     startbtn.style.display="none"
+    quitbtn.style.display="none"
+    quitbtn.style.marginLeft = "15%"
     submitbtn.style.display="block"
     nextQuestionbtn.style.display='none'
     quiz_container.style.backdropFilter='blur(5px)'
@@ -122,13 +140,6 @@ function start_quiz(){
         loadquestion() // condition to be added
         quiz_container.style.display="block"
     }, 1000)
-}
-
-function restart_quiz(){
-    restartbtn.style.display="none"
-    submitbtn.style.display="block"
-    nextQuestionbtn.style.display='none'
-
 }
 
 function loadquestion(){
@@ -188,6 +199,16 @@ function verification(){
             truestreak++
             falsestreak = 0
 
+            quiz_container.style.transform = "scale(1.1)"
+            document.body.style.minHeight='100vh'
+            document.body.style.transition='box-shadow 0.5s ease'
+            document.body.style.boxShadow='inset 0 0 0 100vmax rgba(1, 179, 13, 0.55)'
+
+            setTimeout(() => {
+                document.body.style.boxShadow=''
+                quiz_container.style.transform='scale(1)'
+            },500)
+
             if (truestreak===3){
                 answer_result.textContent = "three in a row!"
             }
@@ -215,11 +236,11 @@ function verification(){
             
             quiz_container.classList.add('shake')
             document.body.style.minHeight='100vh'
-            document.body.style.transition='box-shadow 0.5s ease',
+            document.body.style.transition='box-shadow 0.5s ease'
             document.body.style.boxShadow='inset 0 0 0 100vmax rgba(179, 1, 1, 0.55)'
             setTimeout(() => {
-                quiz_container.classList.remove('shake'),
-                document.body.style.boxShadow='' // to change with the actual backgroung color
+                quiz_container.classList.remove('shake')
+                document.body.style.boxShadow=''
             },500)
 
             if (score===0 & questionCount ===3 ){
@@ -257,8 +278,12 @@ function verification(){
 }
 
 function finishquiz (){
-    question.textContent = ""
     finishbtn.style.display = "none"
+    quitbtn.style.display = "block"
+    quitbtn.style.marginLeft = "15%"
+
+    quiz_container.style.marginRight = '10%'
+
     question.textContent = ""
     options_container.innerHTML = ""
     answer_result.textContent = ""
@@ -269,30 +294,125 @@ function finishquiz (){
     if (score === numquestions){
         answer_result.textContent = "Flawless!"
         comment.textContent = "Your answers were impeccable! You deserve 3 stars!"
+
         star1.style.display = "block"
-        star2.style.display = "block"
-        star3.style.display = "block"
+        no_star2.style.display = "block"
+        no_star3.style.display = "block"
+        star1.classList.add("rotating")
+
+        setTimeout(() => {
+            no_star2.style.display = "none"
+            star2.style.display = "block"
+            star2.classList.add("rotating")
+        }, 1000);
+
+        setTimeout(() => {
+            no_star3.style.display = "none"
+            star3.style.display = "block"
+            star3.classList.add("rotating")
+        }, 2000);
+
+        setTimeout(() => {
+            star1.classList.remove("rotating")
+            star2.classList.remove("rotating")
+            star3.classList.remove("rotating")
+        }, 4000)
+
     }
+
     else if (score === 0){
         answer_result.textContent = "Incredible!"
         comment.textContent = `"The only way to not score any points in a Quizz Tounsi (c) is to know all the answers of the Quizz Tounsi (c)" 
                -Miles Morales' teacher or something`
+
         no_star1.style.display = "block"
         no_star2.style.display = "block"
         no_star3.style.display = "block"
+
+        no_star1.classList.add("starshake")
+        no_star2.classList.add("starshake")
+        no_star3.classList.add("starshake")
+
+        setTimeout(() => {
+            no_star1.classList.remove("starshake")
+            no_star2.classList.remove("starshake")
+            no_star3.classList.remove("starshake")
+        }, 0.5);
+
     }
+
     else if (score/numquestions > 0.5){
         answer_result.textContent = "Not bad!"
         comment.textContent = "Don't wanna sound like your mom, but why didn't you get a full mark?"
         star1.style.display = "block"
-        star2.style.display = "block"
+        no_star2.style.display = "block"
         no_star3.style.display = "block"
+
+        star1.classList.add("rotating")
+
+        setTimeout(() => {
+            no_star2.style.display = "none"
+            star2.style.display = "block"
+            star2.classList.add("rotating")
+        }, 1000);
+
+        setTimeout(() => {
+            no_star3.classList.add('starshake')
+            star1.classList.remove("rotating")
+        }, 3000);
+
+        setTimeout(() => {
+            star2.classList.remove("rotating")
+            no_star3.classList.remove("starshake")
+        }, 3500);
+
     }
+
     else{
         answer_result.textContent = "Well that's unfortunate"
         comment.textContent = "Bad day at the office, eh?"
         star1.style.display = "block"
         no_star2.style.display = "block"
         no_star3.style.display = "block"
+
+        star1.classList.add("rotating")
+
+        setTimeout(() => {
+            no_star2.classList.add('starshake')
+            no_star3.classList.add('starshake')
+        }, 2000);
+
+        setTimeout(() => {
+            star1.classList.remove("rotating")
+            no_star2.classList.remove("starshake")
+            no_star3.classList.remove("starshake")
+        }, 2500);
+
+
     }
+
+    [star1, star2, star3].forEach((star) =>{
+        star.addEventListener("mouseenter", () => {
+            if (star.classList.contains("rotating")) {
+                return
+            }
+            star.classList.add("rotating")
+            setTimeout(() => {
+                star.classList.remove("rotating")
+            }, 2000);
+        })
+    })
+
+    [no_star1, no_star2, no_star3].forEach((nostar) =>{
+        nostar.addEventListener("mouseenter", () => {
+            if (nostar.classList.contains("starshake")) {
+                return
+            }
+            nostar.classList.add("starshake")
+            setTimeout(() => {
+                nostar.classList.remove("starshake")
+            }, 500);
+        })
+    })   //doesn't work yet but no pb ig
+
 }

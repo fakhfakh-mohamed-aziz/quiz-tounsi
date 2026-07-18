@@ -100,10 +100,20 @@ To change the font, I had to download an opentype file of the font and import it
 
 
 
-# June 28th: 
+# July 16th: Animating the buttons and fixing the start screen
 
 Before the quizz starts, i felt the screen was too empty, so i made the start button, the writing inside it and the logo bigger, and replaced them accordingly, but when the quizz started, the logo took to much place. To solve this problem, I went back to the start quizz function and there I put the old dimentions and margins for the logo and removed the 'center' property. But it still needed a transition. I wanted to do it but the logo kept teleporting to the left before smoothly reducing its size. After a bit of research I found out that some properties like justify content is either center or left... no in between. To solve this problem, I removed the justify content property on the nav bar and applied a big margin on the left of the logo (35%) so at the start it seemed like the logo was right in the middle of the page and when the start quiz function is called, the margin would lower to a 5% margin while getting smaller. I then added an upscaling anmation to the buttons when hovered on. But for the starting button, I felt the user needed to be 'drawn' to click on it, so I made a wiggle animation for the start button that stops when you hover on it. Finally, I wanted to animated the question and the options after watching a tutorial but that didn't work so I'll leave it for now and I'll come back for that later.
 
 ![alt text](image-10.png)
 
 **Total time spent: 1h 58m 15s**
+
+
+
+# July 18th: 
+
+I found out that the shake animation when the answer is wrong didn't work anymore. At first I thought it was something that I've written and that I shouldn't have, so I tried removing a few lines of code and that didn't fix the problem, because the button animations were kind of overriding the shake animation. So I added !important to it which forces it over any other animation. I also wanted to change the color of the texts but I didn't find a good enough color so black it is, ig. And like the shake animation, I wanted one for the right answers. I ended up upscaling the quiz container and making a green box shadow. Then I spotted a problem with the buttons: because of the animations, the cursor wouldn't change when you hover on it. I thought about making a function for when you hover on the buttons, but it turns out there's a predefined function simply called cursor in css. I then added a quit button and restart button. For the restart button, I had to chnge the start quiz function to regenerate the questions, because the loadquestions function was eliminating them. Even then it wouldn't load the questions so I just removed it. I know it's not the best thing to do but I found no solution. As for the quit button, it was easy peasy: just had to link it to the main page. Next, I removed all but one question so that I could comfortably look into the stars. First I added display flex to the div containing the quiz and the stars so that the stars could show up next to the quiz container. After that I added a rotating animation to the bright stars and a little shake animation to the dark stars and made them activate one after the other. Now it goes like this: for example if you get 2 stars, the first will rotate and the other two are dark, then the second star will rotate. After both of them finishing their animations, the dark star will finally shake. I also made sure that when you hover on a star it rotates too with the mouseenter function. But that too came with a problem: If you would hover on the star while it is already rotating, the next animation will behave weirdly. To solve it, I just added a condition so that if the star is already rotating, the code will just exit the function that should rotate it again. For some reason I couldn't get the dark stars to do the same but with a little shake but honestly it doesn't matter that much. 
+
+![alt text](image-11.png)
+
+**Total time spent: 3h 58m 47s**

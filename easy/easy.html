@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>easy</title>
-    <link rel="icon" href="../main/flag.png">
+    <link rel="icon" href="../khomsa.png">
     <link rel="stylesheet" href="../easy/easy.css">
 </head>
 <body id="body">
@@ -15,15 +15,7 @@
    </header>
 
    <main>
-        <div>
-            <div id="starsdiv">
-                <img src="../star.png" alt="star" id="star1" style="display: none;" class="stars">
-                <img src="../star.png" alt="star" id="star2" style="display: none;" class="stars">
-                <img src="../star.png" alt="star" id="star3" style="display: none;" class="stars">
-                <img src="../nostar.png" alt="no star" id="no_star1" style="display: none;" class="stars">
-                <img src="../nostar.png" alt="no star" id="no_star2" style="display: none;" class="stars">
-                <img src="../nostar.png" alt="no star" id="no_star3" style="display: none;" class="stars">
-            </div>
+        <div id="quizandstars">
             <div id="quiz_container" style="display: none;">
                 <h2 id="question"></h2>
                 <div id="quiz_form">
@@ -36,13 +28,21 @@
                     <button id="nextQuestionbtn" class="bigbtn">Next question</button>
                     <button id="finishbtn" style="display: none;" class="bigbtn">Finish quiz</button>
                 </div>
-
             </div>
-            <div id="startorrestart">
-                <button id="startbtn" class="bigbtn wiggle">Start the quiz</button>
-                <button id="restartbtn" style="display: none;" class="bigbtn">Restart the quiz</button>
+            <div id="starsdiv">
+                <img src="../star.png" alt="star" id="star1" style="display: none;" class="stars">
+                <img src="../star.png" alt="star" id="star2" style="display: none;" class="stars">
+                <img src="../star.png" alt="star" id="star3" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star1" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star2" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star3" style="display: none;" class="stars">
             </div>
+        </div>    
+        <div id="startorquit">
+            <button id="startbtn" class="bigbtn wiggle">Start the quiz</button>
+            <button id="quitbtn" class="bigbtn" onclick="window.location.href = '../main/main.html'">Quit to main</button>
         </div>
+        
    </main>
 </body>
 <script src="easy.js"></script>
