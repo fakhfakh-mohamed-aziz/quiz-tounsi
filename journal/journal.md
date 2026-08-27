@@ -110,10 +110,62 @@ Before the quizz starts, i felt the screen was too empty, so i made the start bu
 
 
 
-# July 18th: 
+# July 18th: Fixing animations, restart and quit buttons, stars.
 
 I found out that the shake animation when the answer is wrong didn't work anymore. At first I thought it was something that I've written and that I shouldn't have, so I tried removing a few lines of code and that didn't fix the problem, because the button animations were kind of overriding the shake animation. So I added !important to it which forces it over any other animation. I also wanted to change the color of the texts but I didn't find a good enough color so black it is, ig. And like the shake animation, I wanted one for the right answers. I ended up upscaling the quiz container and making a green box shadow. Then I spotted a problem with the buttons: because of the animations, the cursor wouldn't change when you hover on it. I thought about making a function for when you hover on the buttons, but it turns out there's a predefined function simply called cursor in css. I then added a quit button and restart button. For the restart button, I had to chnge the start quiz function to regenerate the questions, because the loadquestions function was eliminating them. Even then it wouldn't load the questions so I just removed it. I know it's not the best thing to do but I found no solution. As for the quit button, it was easy peasy: just had to link it to the main page. Next, I removed all but one question so that I could comfortably look into the stars. First I added display flex to the div containing the quiz and the stars so that the stars could show up next to the quiz container. After that I added a rotating animation to the bright stars and a little shake animation to the dark stars and made them activate one after the other. Now it goes like this: for example if you get 2 stars, the first will rotate and the other two are dark, then the second star will rotate. After both of them finishing their animations, the dark star will finally shake. I also made sure that when you hover on a star it rotates too with the mouseenter function. But that too came with a problem: If you would hover on the star while it is already rotating, the next animation will behave weirdly. To solve it, I just added a condition so that if the star is already rotating, the code will just exit the function that should rotate it again. For some reason I couldn't get the dark stars to do the same but with a little shake but honestly it doesn't matter that much. 
 
 ![alt text](image-11.png)
 
-**Total time spent: 3h 58m 47s**
+**Total time spent: 4h 7m 37s**
+
+
+
+# July 19th to 21th: Hard Questions and sound effects
+
+I made the hard page and found some pretty hard questions. With that I modified a few remarks to adapt with the hard theme. After that I made the medium page which is "under construction" because why not. To make that page I changed the margins and everythin to look a little better. For the background, I chose a construction site, and for the other pages I added a few background too. I also tried again with the restart button but that simply didn't want to work (the system I applied for the questions was too stupid and won't allow for a restart button as far as I know). After that I added a piano cover of Time by Hans Zimmer. I added autoplay, loop and a control panel which I wasn't able to modify even using webkit so I dropped the whole idea. But that didn't stop me from using audios. So for the start quiz button I added a smooth click. Of course there are sound effects for right and wrong answers, and there are ones for the stars in the end too! I then proceded to do lots of other things which I forgot because by the time I'm writing this it has been more than a month since I made those changes.
+
+![alt text](image-12.png)
+
+**Total time spent: 3h 9m 30s**
+
+
+
+# August 24th: Background music and Json animation for the mute/unmute button
+
+I found a relaxing 'oud' song to put in the background of the quizzes. I didn't forget about the problems I encountered a month ago but this time I had an idea. I found online this Json file of a muting/unmuting animation and I wanted to include it in my website. For that I imported the file and put it in a constant that contained the path and some caracteristics, than I made the div act like a button that pauses/unpauses the song while playing some specific frames (127 to 180 to mute, 0 to 90 to unmute), while having it starting out as unmuted. I currently have a problem that should go away when I put my website online which is that the path to the Json file couldn't be found by the browser, so none of the frames are visible. To actually see it, I had to push the 'go live' button on VS Code, but according to reddit that problem will go away as soon as I put a link to my website. 
+A lot of people told me that the words are hard to read because sometimes the background might be a little too dark but I always dismissed it saying that I wanted to blur the quiz and buttons' background so that the images behind were seen. To solve this problem, I rememberd that I can use the box-shadow feature I used when showing if an answer was correct or not, this time the color is pure white (ffffff) with high transparency (30) so that it is almost not seen when the background is bright but is clear just enough so that the word are readable. Some people also told me about the license plate of some cars showing in the background so I removed them (time not included in hackatime but nw it was fun looking for license plates lol).
+
+![alt text](image-13.png)
+
+**Total time spent: 4h**
+
+
+
+# August 25th: Main Page
+
+I went back to the main page where I resised the logo, fixed the footer and modified the buttons' looks. Then I added an animation to the level buttons showing up, which was kinda hard because at first they didn't even want to show up (I still don't know what went wrong I just kept changing the whole thing until it was fixed) and then it did work but it took too long and if you put your mouse away too soon it goes nuts, like some levels don't show up, others don't want to go, when i go to the info section it goes nuts too. The second photo shows the glitch which I will work on tomorrow.
+
+![alt text](image-14.png)
+![alt text](image-15.png)
+
+**Total time spent: 2h 4m**
+
+
+
+# August 26th: Video Background
+
+I figured out how to make a video background (pushing a video by -1 on the z axis). Then, I picked up a few videos on Tunisia that made it feel like a video game menu, added a filter to add a vibe that I can't explain but just makes sense. Then I went on to work on the play button glitch. It was kind of fun at first, because I thought of it as a brain teaser, but no matter what I tried I couldn't think of an optimized solution, so I'll have to stick with the closest solution, which is to verify each time if the mouse is still there before loading in a button, which consists of a hole lot of code but I guess that's the best thing I can do for now.
+
+![alt text](image-16.png)
+
+**Total time spent: 1h 59m**
+
+
+
+# August 27th: Hiding the levels 
+
+To hide the levels without causing the whole thing to crash, I had to come up with a solution with a lot of failsafes. After a lot of useless tries, I thought I got it, by seeing what levels are actually displayed, the program knew which to remove and in what time. Or so I though, because even after all that coding that made me wonder wether this animation was worth it (not at all xD), there was one thing I missed: the user might hover on the play button while he sought the info button. As much as I'm disgusted to say this, I don't think there is a solution to this one, so I'll have to move on. I also added the mute btn and some other things. To avoid the play btn bugs, I just seperated them as much as possible and I'm praying for the best.
+
+![alt text](image-17.png)
+
+**Total time spent: 3h 23m**

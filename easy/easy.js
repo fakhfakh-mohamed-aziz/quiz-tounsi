@@ -3,6 +3,7 @@ const submitbtn = document.getElementById("submitbtn")
 const nextQuestionbtn = document.getElementById("nextQuestionbtn")
 const finishbtn = document.getElementById("finishbtn")
 const quitbtn = document.getElementById("quitbtn")
+const mutebtn = document.getElementById("mutebtn")
 
 const logo = document.getElementById("logo")
 const nav = document.getElementById("nav")
@@ -24,6 +25,14 @@ const no_star1 = document.getElementById("no_star1")
 const no_star2 = document.getElementById("no_star2")
 const no_star3 = document.getElementById("no_star3")
 
+let backgroundSound = new Audio ("../sounds/background.mp3")
+let almousi9arSound = new Audio ("../sounds/almousi9ar.mp3")
+
+let star1Sound = new Audio("../sounds/star1.mp3")
+let star2Sound = new Audio("../sounds/star2.mp3")
+let star3Sound = new Audio("../sounds/star3.mp3")
+let kickSound = new Audio("../sounds/denied.mp3")
+
 
 let questionCount = 0
 let currentQuestion
@@ -31,14 +40,28 @@ let score = 0
 let truestreak = 0
 let falsestreak = 0
 
+let selectSound = new Audio("../sounds/select.mp3")
+let clickSound = new Audio("../sounds/clicksound.mp3")
+let rightSound = new Audio("../sounds/rightanswercalm.mp3")
+let wrongSound = new Audio("../sounds/false.mp3")
+
 const body = document.getElementById('body')
 
+const muteAnimation = lottie.loadAnimation({
+    container:mutebtn,
+    renderer:'svg',
+    loop:false,
+    autoplay:false,
+    initialSegment:[80,80],
+    path:"../soundAnimation.json"
+})
+
 const thequestions = [
-/*    {
+    {
         question: "Tunis is the capital of Tunisia. Sfax is:",
         options : ["the most visited place in tunisia", "The capital of the south", "The furthest city from Tunis", "Has the most amazigh culture heritage"],
         answer:"The capital of the south",
-        explaination: "Eventhough it is not really in the south, it is called the capital of the south for its " //to complete
+        explaination: "Even though it is not really in the south, it is called the capital of the south for its role as a gateway between the northern part of Tunisia and its southern regions. It is a capital because of its economic weight, making it the second most important city in Tunisia after its actual capital Tunis"
     },
     {
         question: "Which movies/series have scenes filmed in Tunisia?",
@@ -59,30 +82,23 @@ const thequestions = [
         explaination: "Two little islands containing each a national park off the Cap Bon peninsula in Nabeul"
     },
     {
-        question: "What is the name origin of the city of Nabeul?",
-        options : ["From a Tunisian icon", "From a battle in the northern part of tunisia", "From a greek word", "From the Roman general who won a battle there"],
-        answer:"From a greek word",
-        explaination: "The greek word Neapolis which means the new city. The name was eventually arabized into Nabeul. It has the same name origins of cities like Napoli in Italy and Nabulus in Palestine." 
-    },
-    {
         question: "What is the Northenmost point in the African continent?",
         options : ["Cap Shleka", "Cap Angela", "Cap Sghaier", "Cap Hrouss"],
         answer:"Cap Angela",
         explaination: "Cap Angela is indeed the northernmost point in africa at 37° above the equator. Oh and the others are made up names lol."
     },
-    */
     {
         question: "Which city is the most tied to islammic culture?",
         options : ["Soussa", "Kairouan", "Sidi Bou Zid", "Kef"],
         answer:"Kairouan",
-        explaination: "" //to complete
+        explaination: "Kairouan in Tunisia is considered the fourth holiest city in Islam after Mecca, Medina, and Jerusalem,  and the spiritual heart of the Maghreb. It earned this status because it was the first Islamic foundation in North Africa, a major medieval center of Quranic learning, and home to profound sacred relics and early mosques"
     },
     {
         question: "Which town is one of the most visited in Tunisia?",
         options : ["Sidi Bou Zid", "Sidi Bou Said", "Sidi Ali El Makki", "Sidi Mansour (ya baba)"],
         answer:"Sidi Bou Said",
         explaination: "Known for its cobbled streets and blue-and-white houses, Sidi Bou Said is a charming town on a promontory overlooking the Mediterranean. -Wikipedia"
-    },
+    }, 
     {
         question: "Where is located the city of Jendouba?",
         options : ["In the North-west", "In the South-west", "In the North-east", "In the South-east"],
@@ -94,7 +110,7 @@ const thequestions = [
 
 let questions = thequestions
 
-body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*17)}.jpg)` //to be changed if the number of bg images changes
+body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*21)}.jpg)` //to be changed if the number of bg images changes
 //bg images have to be jpg or the code would change
 body.style.minHeight='100vh'
 
@@ -109,12 +125,28 @@ startbtn.addEventListener("click", start_quiz)
 nextQuestionbtn.addEventListener("click", loadquestion)
 submitbtn.addEventListener("click", verification)
 
+let muted = false
+backgroundSound.play()
+mutebtn.addEventListener('click', ()=>{
+    if (!muted) {
+        backgroundSound.pause()
+        muteAnimation.playSegments([127,180], true)
+        muted = true
+    } else {
+        backgroundSound.play()
+        muteAnimation.playSegments([0,90],true)
+        muted=false
+    }
+})
+
 
 
 function start_quiz(){
     if (questions.length===0) {
         questions = [...thequestions]
     }
+
+    clickSound.play()
 
     star1.style.display='none'
     star2.style.display='none'
@@ -152,7 +184,7 @@ function loadquestion(){
     comment.textContent = ""
     explainationParagraph.textContent = ""
 
-    body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*17)}.jpg)` //to be changed if the number of bg images changes
+    body.style.backgroundImage = `url(../background/${Math.ceil(Math.random()*21)}.jpg)` //to be changed if the number of bg images changes
 
     if (questions.length !== 0){
       
@@ -174,6 +206,7 @@ function loadquestion(){
         })
 
         questions.splice(currentQuestionIndex, 1)  
+
     }
 
 }
@@ -183,7 +216,10 @@ function verification(){
         alert("Please select an option")
     }
     else{
-        const selected = document.querySelector('input[name="option"]:checked').value
+        
+        let checkedOption = document.querySelector('input[name="option"]:checked')
+        let selected = checkedOption.value
+
         submitbtn.style.display='none'
         if (questions.length !== 0){
             nextQuestionbtn.style.display='block'
@@ -198,6 +234,8 @@ function verification(){
             score++
             truestreak++
             falsestreak = 0
+
+            rightSound.play()
 
             quiz_container.style.transform = "scale(1.1)"
             document.body.style.minHeight='100vh'
@@ -233,6 +271,8 @@ function verification(){
         else{
             truestreak = 0
             falsestreak++
+
+            wrongSound.play()
             
             quiz_container.classList.add('shake')
             document.body.style.minHeight='100vh'
@@ -282,7 +322,7 @@ function finishquiz (){
     quitbtn.style.display = "block"
     quitbtn.style.marginLeft = "15%"
 
-    quiz_container.style.marginRight = '10%'
+    quiz_container.style.marginRight = '5%'
 
     question.textContent = ""
     options_container.innerHTML = ""
@@ -295,21 +335,26 @@ function finishquiz (){
         answer_result.textContent = "Flawless!"
         comment.textContent = "Your answers were impeccable! You deserve 3 stars!"
 
+
         star1.style.display = "block"
         no_star2.style.display = "block"
         no_star3.style.display = "block"
         star1.classList.add("rotating")
+        star1Sound.play()
+
 
         setTimeout(() => {
             no_star2.style.display = "none"
             star2.style.display = "block"
             star2.classList.add("rotating")
+            star2Sound.play()
         }, 1000);
 
         setTimeout(() => {
             no_star3.style.display = "none"
             star3.style.display = "block"
             star3.classList.add("rotating")
+            star3Sound.play()
         }, 2000);
 
         setTimeout(() => {
@@ -332,12 +377,13 @@ function finishquiz (){
         no_star1.classList.add("starshake")
         no_star2.classList.add("starshake")
         no_star3.classList.add("starshake")
+        kickSound.play()
 
         setTimeout(() => {
             no_star1.classList.remove("starshake")
             no_star2.classList.remove("starshake")
             no_star3.classList.remove("starshake")
-        }, 0.5);
+        }, 500);
 
     }
 
@@ -349,15 +395,18 @@ function finishquiz (){
         no_star3.style.display = "block"
 
         star1.classList.add("rotating")
+        star1Sound.play()
 
         setTimeout(() => {
             no_star2.style.display = "none"
             star2.style.display = "block"
             star2.classList.add("rotating")
+            star2Sound.play()
         }, 1000);
 
         setTimeout(() => {
             no_star3.classList.add('starshake')
+            kickSound.play()
             star1.classList.remove("rotating")
         }, 3000);
 
@@ -376,10 +425,12 @@ function finishquiz (){
         no_star3.style.display = "block"
 
         star1.classList.add("rotating")
+        star1Sound.play()
 
         setTimeout(() => {
             no_star2.classList.add('starshake')
             no_star3.classList.add('starshake')
+            kickSound.play()
         }, 2000);
 
         setTimeout(() => {

@@ -1,17 +1,135 @@
-.bodies{
-    background-color: #FF5747;
+#bgvideo{
+    position: fixed;
+    right: 0%;
+    bottom: 0%;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .footer{
-    background-color: #FF5747;
-    text-align: center;
+    position: absolute;
+    bottom: 5%;
+    right: 45%;
+    font-family: 'Gristela';
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
 }
 
 #logo{
-    display: flex;
-    
+    border-radius: 25px;
+    transition: 0.1 ease-in-out;
 }
+
+button{
+    border: 3px solid #000000;
+    border-radius: 25px;
+    background: none;
+    height: 55px;
+    font-size: larger;
+    width: 150px;
+    margin: 2%;
+    font-family: Gristela;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    box-shadow: inset 0 0 0 100vmax #ffffff50;
+}
+
+#play{
+    font-size: x-large;
+}
+
+#easybtn{
+    margin-top: 25px;
+}
+
 #levels{
-    width: 80px;
-    height: 30px;
+    margin-left: 10%;
+    height: 60px;
+    width: 160px;
+}
+
+#level_container{
+    margin-left: 80px;
+}
+
+.slideIn{
+    animation: slideIn 0.2s;
+}
+
+@keyframes slideIn {
+    75%{transform:translateX(18px)}
+    100%{transform: translateX(2px);}
+}
+
+.slideOut{
+    animation: slideOut 0.2s;
+}
+
+@keyframes slideOut {
+    75%{transform: translateX(-18px);}
+    100%{transform: translateX(-2px);}
+}
+
+#infoText{
+    border: 3x solid #000000;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 100vmax #ffffff50;
+    margin-left: 3%;
+    margin-right: 50%;
+    padding: 2%;
+}
+
+#infobtn{
+    position: fixed;
+    left: 3%;
+    bottom: 1%;
+    width: 130px;
+    height: 45px;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+@font-face {
+    font-family: 'Rosca';
+    src: url(../fonts/rosca.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'Gristela';
+    src: url(../fonts/gristela.otf) format(opentype);
+}
+
+h2{
+    font-family: 'Rosca';
+    font-weight: 800;
+}
+
+p{
+    font-family: 'Gristela';
+    font-weight: 200;
+}
+
+#mutebtn{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 4%;
+    right: 5%;
+    transition: ease-in-out;
+    cursor: pointer;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+#mutebtn:hover{
+    transform: scale(1.15);
 }

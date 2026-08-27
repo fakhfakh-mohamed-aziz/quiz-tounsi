@@ -1,0 +1,75 @@
+button{
+    border: 0px;
+    height: 90px;
+    width: 225px;
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    border: 3px solid #000000;
+    border-radius: 15px;
+    background: none;
+    font-family: gristela;
+    font-weight: 400;
+    font-size: larger;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    margin-left: 60%;
+    font-size: xx-large;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+button:hover{
+    animation-play-state: paused;
+    transform: scale(1.15);
+}
+
+#construction{
+
+    padding: 50px;
+    height: auto;
+    backdrop-filter: blur(2px);
+    border: 3px solid #000000;
+    border-radius: 25px;
+    margin-right: 27%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    margin-left: 35%;
+    font-size: 135%;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+#body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../background/construction.jpg);
+    margin: 0%;
+}
+
+#logo{
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    margin: 2%;
+    margin-left: 35%;
+    transition: 1s ease-in-out;
+    box-shadow: inset 0 0 0 100vmax #ffffff10;
+}
+
+
+@font-face {
+    font-family: 'Rosca';
+    src: url(../fonts/rosca.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'gristela';
+    src: url(../fonts/gristela.otf) format(opentype);
+}
+
+h2{
+    font-family: Rosca;
+}
+
+p{
+    font-family: gristela;
+    font-weight: 100;
+}

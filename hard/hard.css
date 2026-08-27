@@ -1,0 +1,193 @@
+.stars{
+    height: 150px;
+    width: 150px;
+}
+
+.rotating{
+    animation: rotating 2s ease-out;
+}
+
+@keyframes rotating{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.starshake{
+    animation: starshake 0.5s ease-out;
+}
+
+@keyframes starshake{
+    50%{transform: translateX(4px);}
+    100%{transform: translateX(-4px);}
+}
+
+#starsdiv{
+    display: flex;
+    gap: 25px;
+}
+
+button{
+    border: 3px solid #000000;
+    border-radius: 5px;
+    height: 45px;
+    width: 130px;
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+    font-family: gristela;
+    font-weight: 400;
+    font-size: larger;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+button:hover{
+    animation-play-state: paused;
+    transform: scale(1.15);
+}
+
+#mutebtn{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    transition: ease-in-out;
+    cursor: pointer;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+#mutebtn:hover{
+    transform: scale(1.15);
+}
+
+#submitbtn{
+    margin-top: 30px;
+}
+
+#startbtn{
+    margin-top: 30px;
+    margin-left: 55%;
+    height: 90px;
+    width: 260px;
+    font-size: xx-large;
+}
+
+#quitbtn{
+    margin-left: 60%;
+    font-size: x-large;
+}
+
+.wiggle{
+    animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle{
+    0%{transform: translateX(0px);}
+    25%{transform: translateX(8px);}
+    50%{transform: translateX(0px);}
+    75%{transform: translateX(-8px);}
+    100%{transform: translateX(0px);}
+}
+
+#startorquit{
+    display: flex;
+    flex-direction: column;
+}
+
+.bigbtn{
+    height: 60px;
+    width: 150px;
+    margin: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+}
+
+.shake{
+    animation: shake 0.5s !important;
+}
+
+@keyframes shake{
+    0%{transform: translateX(8px);}
+    25%{transform: translateX(-8px);}
+    60%{transform: translateX(2px);}
+    100%{transform: translateX(-2px);}
+}
+
+#quiz_container{
+
+    padding: 50px;
+    height: auto;
+    margin-right: 50%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    border-radius: 10%;
+    border: 3px solid #000000;
+    font-size: 135%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+
+/*    overflow: hidden;    
+    animation: type 10s ease-in-out;*/
+}
+
+#body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0%;
+}
+
+#logo{
+    backdrop-filter: blur(2px);
+    margin: 2%;
+    margin-left: 35%;
+    transition: 1s ease-in-out;
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 100vmax #ffffff10;
+}
+
+
+@font-face {
+    font-family: 'Rosca';
+    src: url(../fonts/rosca.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'gristela';
+    src: url(../fonts/gristela.otf) format(opentype);
+}
+
+h2{
+    font-family: Rosca;
+}
+
+#options_container{
+    font-family: gristela;
+    font-weight: 100;
+}
+
+#explainationParagraph{
+    font-family: gristela;
+    font-weight: 100;
+}
+
+#comment{
+    font-family: gristela;
+    font-weight: 100;
+}
+
+#quizandstars{
+    display: flex;
+    padding: 5%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}

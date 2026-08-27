@@ -27,7 +27,8 @@
 }
 
 button{
-    border: 0px;
+    border: 3px solid #000000;
+    border-radius: 5px;
     height: 45px;
     width: 130px;
     margin: 10px;
@@ -38,10 +39,31 @@ button{
     font-size: larger;
     transition: 0.5s ease-in-out;
     cursor: pointer;
+
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
 }
 
 button:hover{
     animation-play-state: paused;
+    transform: scale(1.15);
+}
+
+#mutebtn{
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    transition: ease-in-out;
+    cursor: pointer;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    background: none;
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
+}
+
+#mutebtn:hover{
     transform: scale(1.15);
 }
 
@@ -80,7 +102,6 @@ button:hover{
 }
 
 .bigbtn{
-    border: 0px;
     height: 60px;
     width: 150px;
     margin: 10px;
@@ -108,12 +129,11 @@ button:hover{
     margin-bottom: 5%;
     margin-left: 5%;
     border-radius: 10%;
-    border: 3px;
+    border: 3px solid #000000;
     font-size: 135%;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 
-/*    overflow: hidden;    
-    animation: type 10s ease-in-out;*/
+    box-shadow: inset 0 0 0 100vmax #ffffff30;
 }
 
 /*@keyframes type{
@@ -136,10 +156,11 @@ button:hover{
 
 #logo{
     backdrop-filter: blur(2px);
-    border-radius: 15px;
     margin: 2%;
     margin-left: 35%;
     transition: 1s ease-in-out;
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 100vmax #ffffff10;
 }
 
 
@@ -174,4 +195,7 @@ h2{
 
 #quizandstars{
     display: flex;
+    padding: 5%;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
