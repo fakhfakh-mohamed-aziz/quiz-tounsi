@@ -1,2 +1,2 @@
-name = "quizz-tounsi"
-assets = "./dist"
+[assets]
+directory = "./dist"
