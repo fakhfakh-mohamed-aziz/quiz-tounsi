@@ -6,21 +6,46 @@
     <title>easy</title>
     <link rel="icon" href="../khomsa.png">
     <link rel="stylesheet" href="../medium/medium.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body id="body">
     <header>
       <nav id="nav">
-         <a href="../main/main.html"><img src="../quizztounsinobg.png" alt="logo" width="320" height="180" id="logo"></a>
+         <a href="../main/main.html"><img src="../quizztounsinobg.png" alt="logo" width="480" height="270" id="logo"></a>
       </nav>
    </header>
 
    <main>
-
-        <div id="construction">
-            <h2>Level under construction!</h2>
-            <p>Arja3 ghodwa! (Come back tommorrow!)</p>
+        <div id="quizandstars">
+            <div id="quiz_container" style="display: none;">
+                <h2 id="question"></h2>
+                <div id="quiz_form">
+                    <div id="options_container"></div>
+                    <button id="submitbtn">Submit</button>
+                    <h2 id="answer_result"></h2>
+                    <h2 id="score_update"></h2>
+                    <p id="comment"></p>
+                    <p id="explainationParagraph"></p>
+                    <button id="nextQuestionbtn" class="bigbtn">Next question</button>
+                    <button id="finishbtn" style="display: none;" class="bigbtn">Finish quiz</button>
+                </div>
+            </div>
+            <div id="starsdiv">
+                <img src="../star.png" alt="star" id="star1" style="display: none;" class="stars">
+                <img src="../star.png" alt="star" id="star2" style="display: none;" class="stars">
+                <img src="../star.png" alt="star" id="star3" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star1" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star2" style="display: none;" class="stars">
+                <img src="../nostar.png" alt="no star" id="no_star3" style="display: none;" class="stars">
+            </div>
+        </div>    
+        <div id="startorquit">
+            <button id="startbtn" class="bigbtn wiggle">Start the quiz</button>
+            <button id="quitbtn" class="bigbtn" onclick="window.location.href = '../main/main.html'">Quit to main</button>
         </div>
-        <button id="quitbtn" class="bigbtn" onclick="window.location.href = '../main/main.html'">Quit to main</button>
+        <div id="mutebtn"></div>
+        
    </main>
 </body>
+<script src="medium.js"></script>
 </html>

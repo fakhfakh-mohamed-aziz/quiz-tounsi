@@ -91,11 +91,11 @@ const thequestions = [
         question: "Which city is the most tied to islammic culture?",
         options : ["Soussa", "Kairouan", "Sidi Bou Zid", "Kef"],
         answer:"Kairouan",
-        explaination: "Kairouan in Tunisia is considered the fourth holiest city in Islam after Mecca, Medina, and Jerusalem,  and the spiritual heart of the Maghreb. It earned this status because it was the first Islamic foundation in North Africa, a major medieval center of Quranic learning, and home to profound sacred relics and early mosques"
+        explaination: "Kairouan in Tunisia is considered the fourth holiest city in Islam after Mecca, Medina, and Jerusalem, and the spiritual heart of the Maghreb. It earned this status because it was the first Islamic foundation in North Africa, a major medieval center of Quranic learning, and home to profound sacred relics and early mosques"
     },
     {
         question: "Which town is one of the most visited in Tunisia?",
-        options : ["Sidi Bou Zid", "Sidi Bou Said", "Sidi Ali El Makki", "Sidi Mansour (ya baba)"],
+        options : ["Sidi Bou Zid", "Sidi Bou Said", "Sidi Ali El Makki", "Sidi Mansour"],
         answer:"Sidi Bou Said",
         explaination: "Known for its cobbled streets and blue-and-white houses, Sidi Bou Said is a charming town on a promontory overlooking the Mediterranean. -Wikipedia"
     }, 

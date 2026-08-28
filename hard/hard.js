@@ -98,12 +98,6 @@ const thequestions = [
         options : ["142 B.C.", "164 B.C.", "124 A.D", "1956"],
         answer:"142 B.C.",
         explaination: "The Third Punic War ended in 142 B.C. after a 3-year siege held by the general Scipio, marking the fall of the great empire of Carthage. The cities were destroyed and a large portion of the surviving population was enslaved, a sad ending to the epic battles between Carthage and Rome" 
-    },
-    {
-        question: "Before the 2022 constitution, Tunisia was governed by the:",
-        options : ["2014 constitution", "2011 constitution", "1984 constitution", "1956 constitution"],
-        answer:"2014 constitution",
-        explaination: "After the 2011 revolution, the country being in a state of political instability, the National Constituent Assembly drafted a new supreme law, which was officially adopted on January 26, 2014."
     }
     
 ]

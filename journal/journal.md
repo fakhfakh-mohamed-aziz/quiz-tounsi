@@ -169,3 +169,13 @@ To hide the levels without causing the whole thing to crash, I had to come up wi
 ![alt text](image-17.png)
 
 **Total time spent: 3h 23m**
+
+
+
+# August 28th: Medium level question and Impossible level under construction
+
+Today, I searched for questions that are not too hard (in a Tunisian's perspective) but it was painful as I already put everything I knew in the Easy and Hard levels. For the Impossible level, I had a few ideas in mind but I'm afraid that my current situation and the fact that Macondo is ending won't let me realise them, so for now, I'll just put the "level under construction" thing and call it a day. Now there's only one step remaining, which is to publish the whole thing!
+
+![alt text](image-18.png)
+
+**Total time spent: 1h 34m**
