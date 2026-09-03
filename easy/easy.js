@@ -28,10 +28,10 @@ const no_star3 = document.getElementById("no_star3")
 let backgroundSound = new Audio ("../sounds/background.mp3")
 let almousi9arSound = new Audio ("../sounds/almousi9ar.mp3")
 
-let star1Sound = new Audio("../sounds/star1.MP3")
-let star2Sound = new Audio("../sounds/star2.MP3")
-let star3Sound = new Audio("../sounds/star3.MP3")
-let kickSound = new Audio("../sounds/denied.MP3")
+let star1Sound = new Audio("../sounds/star1.mp3")
+let star2Sound = new Audio("../sounds/star2.mp3")
+let star3Sound = new Audio("../sounds/star3.mp3")
+let kickSound = new Audio("../sounds/denied.mp3")
 
 
 let questionCount = 0
@@ -40,10 +40,10 @@ let score = 0
 let truestreak = 0
 let falsestreak = 0
 
-let selectSound = new Audio("../sounds/select.MP3")
+let selectSound = new Audio("../sounds/select.mp3")
 let clickSound = new Audio("../sounds/clicksound.mp3")
 let rightSound = new Audio("../sounds/rightanswercalm.mp3")
-let wrongSound = new Audio("../sounds/false.MP3")
+let wrongSound = new Audio("../sounds/false.mp3")
 
 const body = document.getElementById('body')
 
